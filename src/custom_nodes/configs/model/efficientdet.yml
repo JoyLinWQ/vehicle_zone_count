@@ -1,0 +1,39 @@
+# Mandatory configs
+# Receive bounding boxes and their respective labels as input. Replace with
+# other data types as required. List of built-in data types for PeekingDuck can
+# be found at https://peekingduck.readthedocs.io/en/stable/glossary.html.
+# input: ["bboxes", "bbox_labels"]
+# Example:
+# Output `obj_attrs` for visualization with `draw.tag` node and `custom_key` for
+# use with other custom nodes. Replace as required.
+# output: ["obj_attrs", "bbox_labels"]
+
+# Optional configs depending on node
+# threshold: 0.5 # example
+
+
+input: ['img']
+output: ['bboxes', 'bbox_labels', 'bbox_scores', "my_ids"]
+
+model_type: 0 # 0-4
+weights_parent_dir: null
+weights: {
+    model_subdir: efficientdet,
+    blob_file: efficientdet.zip,
+    classes_file: coco_90.json,
+    model_file: {
+        0: efficientdet-d0.pb,
+        1: efficientdet-d1.pb,
+        2: efficientdet-d2.pb,
+        3: efficientdet-d3.pb,
+        4: efficientdet-d4.pb,
+    }
+}
+size: [512, 640, 768, 896, 1024]
+num_classes: 90
+score_threshold: 0.3
+detect_ids: [0]
+# detect_ids: [2, 3, 5, 7]
+custom_class_names: {"car": 2, "motorcycle": 3, "truck": 5, "bus": 7}
+MODEL_NODES:
+    { inputs: [x:0], outputs: [Identity:0, Identity_1:0, Identity_2:0] }

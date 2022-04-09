@@ -1,0 +1,24 @@
+# Mandatory configs
+# Receive bounding boxes and their respective labels as input. Replace with
+# other data types as required. List of built-in data types for PeekingDuck can
+# be found at https://peekingduck.readthedocs.io/en/stable/glossary.html.
+# input: ["bboxes", "bbox_labels", "bbox_scores", "my_ids"]
+input: ["all"]
+# Example:
+# Output `obj_attrs` for visualization with `draw.tag` node and `custom_key` for
+# use with other custom nodes. Replace as required.
+# output: ["obj_attrs", "bboxes", "bbox_labels", "bbox_scores", "my_ids", \
+# "cum_avg", "cum_min", "cum_max"]
+# output: []
+
+# Optional configs depending on node
+# threshold: 0.5 # example
+# input: ["all"]
+output: ["obj_attrs", "bboxes", "bbox_labels", "bbox_scores", "cum_avg", "cum_min", "cum_max", "my_ids"]
+
+identity: null
+length: null
+minimum: null
+maximum: null
+maximum: obj_attrs["ids"]
+cond_count: null

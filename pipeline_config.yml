@@ -1,0 +1,26 @@
+nodes:
+- input.visual:
+    source: "C:\\Users\\jlwq0\\Documents\\JoyLinWQ\\peekingduck_idea\\data\\trim3.mp4"
+- custom_nodes.model.efficientdet
+# - custom_nodes.model.debug
+- dabble.tracking
+# - custom_nodes.dabble.statistics # dabble/statistics.py -> maybe dont use this
+- dabble.bbox_to_btm_midpoint
+- custom_nodes.dabble.zone_count # dabble/zone_count.py 
+                                    # -> run() loop through zones + object ids
+                                    # -> run() return additional dict output "zone_ids_count" for plotting legend
+# - custom_nodes.dabble.debug
+- draw.bbox
+- draw.btm_midpoint
+- draw.zones
+- draw.tag
+- custom_nodes.draw.legend:
+    show: ["zone_count"] # add show: ["zone_ids_count"]
+    detect_ids: ["car", "motorcycle", "truck", "bus"]
+    # show: ["cum_max"]
+# - custom_nodes.draw.debug
+- output.screen
+- output.media_writer
+
+# create custom node command
+# peekingduck create-node --config_path C:\Users\jlwq0\Documents\JoyLinWQ\peekingduck_idea\object_counting_over_time.yml

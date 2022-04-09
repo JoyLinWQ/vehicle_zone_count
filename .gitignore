@@ -1,0 +1,6 @@
+# data folders
+/data/**
+/PeekingDuck/**
+
+# weights folders
+/src/peekingduck_weights/**

@@ -4,3 +4,6 @@
 
 # weights folders
 /src/peekingduck_weights/**
+
+# cached folders
+**/__pycache__/**

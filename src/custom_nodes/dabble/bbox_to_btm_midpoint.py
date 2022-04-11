@@ -48,7 +48,6 @@ class Node(AbstractNode):
         bboxes = inputs["bboxes"]
         frame = inputs["img"]
         self.img_size = (frame.shape[1], frame.shape[0])  # type:ignore
-        print("inputs bbox to btm midpt", inputs)
         return {
             "obj_attrs": inputs["obj_attrs"],
             "bboxes": inputs["bboxes"],

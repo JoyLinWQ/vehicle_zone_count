@@ -23,9 +23,8 @@ nodes:
 - draw.tag:
     show: ["ids"]
 - custom_nodes.draw.legend:
-    show: ["zone_count"]
+    show: ["zone_count", "cum_max"]
     # detect_ids: ["car", "motorcycle", "truck", "bus"]
-    # show: ["cum_max"]
 - output.screen
 - output.media_writer
 

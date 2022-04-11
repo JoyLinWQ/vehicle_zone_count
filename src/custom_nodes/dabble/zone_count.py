@@ -63,6 +63,7 @@ class Node(AbstractNode):
                 # for j, ids in enumerate(self.ids):
                 if zone.point_within_zone(*point):
                     zone_counts[i] += 1
+        print("--ZONECOUNT--")
         print("check zone count", zone_counts)
         print("zones", [zone.get_all_points_of_area() for zone in self.zones])
         print("my ids", inputs["my_ids"])

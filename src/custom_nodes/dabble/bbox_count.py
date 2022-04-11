@@ -37,7 +37,6 @@ class Node(AbstractNode):
         Note that this method requires that the bboxes returned to all belong
         to the same object category (for example, all "person").
         """
-        print("bbox inputs", inputs)
         return {
             "obj_attrs": inputs["obj_attrs"],
             "bboxes": inputs["bboxes"],

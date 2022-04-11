@@ -75,7 +75,6 @@ class Node(AbstractNode):
         """Takes an image as input and returns bboxes of objects specified
         in config.
         """
-        print("model my ids", self.detect_ids)
         bboxes, labels, scores = self.model.predict(inputs["img"])
         bboxes = np.clip(bboxes, 0, 1)
         outputs = {

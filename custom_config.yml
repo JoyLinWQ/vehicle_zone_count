@@ -1,8 +1,10 @@
 nodes:
 - input.visual:
     source: data\sample_traffic.mp4
+    # source: data\sample_animal.mp4
 - model.efficientdet:
     detect_ids: ["car", "motorcycle", "truck", "bus"]
+    # detect_ids: ["bird", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe"]
     score_threshold: 0.3 # default 0.3
 - dabble.tracking:
     tracking_type: "iou"

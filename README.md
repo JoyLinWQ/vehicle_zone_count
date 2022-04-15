@@ -52,7 +52,9 @@ $ peekingduck run --config_path="custom_config.yml"
 
 ![sample_output](https://github.com/JoyLinWQ/vehicle_zone_count/blob/submission/PeekingDuck/data/output/sample/sample_vehicle.gif)
 
+Each detected object is shown in a bounding box with its class name. The number above each box represents a unique instance of a detected object.
 
+The counts of detected objects by their class names in each zone per video frame is reflected in the legend.
 
 
 

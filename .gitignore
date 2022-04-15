@@ -3,6 +3,7 @@ data/**
 !data/sample_*.mp4
 PeekingDuck/data/output/*.mp4
 !PeekingDuck/data/output/sample/*.mp4
+!PeekingDuck/data/output/solution/*.mp4
 
 # weights folders
 /src/peekingduck_weights/**

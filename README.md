@@ -22,13 +22,12 @@ $ git clone https://github.com/JoyLinWQ/vehicle_zone_count.git
 $ cd vehicle_zone_count
 ```
 
-3. Create a virtual environment (python 3.6 to 3.9) and install PeekingDuck:
+3. Create a virtual environment (python 3.6 to 3.9) and install PeekingDuck. For Apple Silicon Mac users, follow Custom Install [here](https://peekingduck.readthedocs.io/en/latest/getting_started/03_custom_install.html#apple-silicon-mac-installation).
 ```
 $ conda create --name my_pd python=3.9
 $ conda activate my_pd
 $ pip install -U peekingduck 
 ```
-For Apple Silicon Mac users, follow Custom Install [here](https://peekingduck.readthedocs.io/en/latest/getting_started/03_custom_install.html#apple-silicon-mac-installation).
 
 4. Locate the original file and replace with custom file below:
     - Original file:

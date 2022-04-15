@@ -1,6 +1,6 @@
 nodes:
 - input.visual:
-    source: data\trim3.mp4
+    source: data\sample.mp4
 - model.efficientdet:
     detect_ids: ["car", "motorcycle", "truck", "bus"]
     score_threshold: 0.3 # default 0.3

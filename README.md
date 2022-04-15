@@ -49,7 +49,12 @@ $ peekingduck run --config_path="custom_config.yml"
 
 6. Watch the zone counting proceed in a new popup window with output below, which will be automatically saved to `"...\pd_custom_zone_count\vehicle_zone_count\PeekingDuck\data\output\XXX.mp4"` when the run is completed.
 
-https://user-images.githubusercontent.com/69743962/163528024-ba598a3b-64c8-4be5-be6e-025fc27f75c5.mp4
+
+https://user-images.githubusercontent.com/69743962/163529401-f8dfe64b-165f-46c4-bf15-6b2bd41eca3f.mp4
+
+
+
+
 
 
 

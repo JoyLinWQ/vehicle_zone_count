@@ -1,41 +1,3 @@
-# """
-# Node template for creating custom nodes.
-# """
-# 
-# from typing import Any, Dict
-# 
-# from peekingduck.pipeline.nodes.node import AbstractNode
-# 
-# 
-# class Node(AbstractNode):
-    # """This is a template class of how to write a node for PeekingDuck.
-# 
-    # Args:
-        # config (:obj:`Dict[str, Any]` | :obj:`None`): Node configuration.
-    # """
-# 
-    # def __init__(self, config: Dict[str, Any] = None, **kwargs: Any) -> None:
-        # super().__init__(config, node_path=__name__, **kwargs)
-# 
-        # initialize/load any configs and models here
-        # configs can be called by self.<config_name> e.g. self.filepath
-        # self.logger.info(f"model loaded with configs: config")
-# 
-    # def run(self, inputs: Dict[str, Any]) -> Dict[str, Any]:  # type: ignore
-        # """This node does ___.
-# 
-        # Args:
-            # inputs (dict): Dictionary with keys "__", "__".
-# 
-        # Returns:
-            # outputs (dict): Dictionary with keys "__".
-        # """
-# 
-        # result = do_something(inputs["in1"], inputs["in2"])
-        # outputs = {"out1": result}
-        # return outputs
-
-
 # Copyright 2022 AI Singapore
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -112,7 +74,7 @@ class Node(AbstractNode):
                 "To display information in the legend box, at least one data type must be "
                 "selected in the 'show' config."
             )
-        # self.ids = self.config["detect_ids"]
+        self.names = [*self.config["custom_class_names"]] #
 
     def run(self, inputs: Dict[str, Any]) -> Dict[str, Any]:
         """Draws legend box with information from nodes.
@@ -124,12 +86,10 @@ class Node(AbstractNode):
             outputs (dict): Dictionary with keys "none".
         """
         _check_data_type(inputs, self.show)
-        Legend().draw(inputs, self.show, self.position)
-        # Legend().draw(inputs, self.show, self.position, self.ids)
+        # Legend().draw(inputs, self.show, self.position)
+        Legend().draw(inputs, self.show, self.position, self.names)
         # cv2 weighted does not update the referenced image. Need to return and replace.
-        outputs = {
-            "img": inputs["img"]
-        }
+        outputs = {"img": inputs["img"]}
         return outputs
 
 

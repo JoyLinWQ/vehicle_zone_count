@@ -1,21 +1,23 @@
 nodes:
 - input.visual:
-    source: "C:\\Users\\jlwq0\\Documents\\JoyLinWQ\\peekingduck_idea\\data\\trim3.mp4"
-- custom_nodes.model.efficientdet:
+    source: data\sample_traffic.mp4
+    # source: data\sample_animal.mp4
+- model.efficientdet:
     detect_ids: ["car", "motorcycle", "truck", "bus"]
+    # detect_ids: ["bird", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe"]
     score_threshold: 0.3 # default 0.3
-- custom_nodes.dabble.tracking:
+- dabble.tracking:
     tracking_type: "iou"
-- custom_nodes.dabble.statistics:
+- dabble.statistics:
     maximum: obj_attrs["ids"]
-- custom_nodes.dabble.bbox_to_btm_midpoint
-- custom_nodes.dabble.zone_count:
+- dabble.bbox_to_btm_midpoint
+- dabble.zone_count:
     resolution: [1280, 720]
     zones: [
         [[0, 0], [0.55, 0], [0.55, 1], [0, 1]],
         [[0.55, 0], [1, 0], [1, 1], [0.55, 1]]
     ]
-- custom_nodes.dabble.bbox_count
+- dabble.bbox_count
 - draw.bbox:
     show_labels: True
 - draw.btm_midpoint
@@ -24,11 +26,5 @@ nodes:
     show: ["ids"]
 - custom_nodes.draw.legend:
     show: ["zone_count"]
-    # detect_ids: ["car", "motorcycle", "truck", "bus"]
-    # show: ["cum_max"]
 - output.screen
 - output.media_writer
-
-# running peekingduck command
-# peekingduck run --config_path "C:\\Users\\jlwq0\\Documents\\JoyLinWQ\\peekingduck_idea\\src\\custom_nodes\\configs\\object_counting_over_time.yml"
-# peekingduck run --config_path "C:\\Users\\jlwq0\\Documents\\JoyLinWQ\\peekingduck_idea\\src\\custom_nodes\\configs\\custom_config.yml"

@@ -1,9 +1,13 @@
-# data folders
-/data/**
-/PeekingDuck/**
+# data folders except sample files/folders
+data/**
+!data/sample_*.mp4
+PeekingDuck/data/output/*.mp4
+!PeekingDuck/data/output/sample/*.mp4
+!PeekingDuck/data/output/solution/*.mp4
 
 # weights folders
 /src/peekingduck_weights/**
 
 # cached folders
 **/__pycache__/**
+

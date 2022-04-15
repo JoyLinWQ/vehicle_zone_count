@@ -1,6 +1,6 @@
 # data folders except sample files/folders
 data/**
-!data/sample.mp4
+!data/sample_*.mp4
 PeekingDuck/data/output/*.mp4
 !PeekingDuck/data/output/sample/*.mp4
 

@@ -8,7 +8,7 @@ Other interesting use cases like blood flow monitoring or smart refrigerators ca
 Let's start counting!
 
 ## Setup project directory
-This section explains the setup for a default run of the submitted solution.
+This section explains the setup for a default run of the submitted solution detecting traffic vehicles (eg. car, motorcycle, truck, bus). A 10-second trimmed sample video is available in `vehicle_zone_count/data/sample_traffic.mp4` (Credits: 4K camera example for Traffic Monitoring (Road).mp4 - https://www.youtube.com/watch?v=jjlBnrzSGjc).
 
 1. Create and navigate to root project directory:
 ```
@@ -70,7 +70,9 @@ For videos obtained from YouTube, you may refer to Step 1 below.
 3. Store trimmed videos in `data` folder.
 
 Sample video:
-A 10-second trimmed video is available in `vehicle_zone_count/data/sample.mp4` (Credits: 4K camera example for Traffic Monitoring (Road).mp4 - https://www.youtube.com/watch?v=jjlBnrzSGjc).
+A 13-second trimmed video is available in 
+`vehicle_zone_count/data/sample_animal.mp4` (Credits: Wildlife Video 2021 | Best Wildlife Compilation With Natural Sound | Wild Animals Collections Video -
+https://www.youtube.com/watch?v=G2usoiFYlho).
 
 ### B. Configure script
 Before running, you may wish to copy and rename the folder contents in `vehicle_zone_count` to your specific use case, eg. `animal_zone_count`. Next, perform 3 simple configurations for your custom data sources in `pd_custom_zone_count/animal_zone_count/custom_config.yml`.
@@ -80,7 +82,7 @@ Update the path to your input video source, relative to the sub-project folder `
 Example:
 ```
 - input.visual:
-    source: data/animal_sample.mp4
+    source: data/sample_animal.mp4
 ```
 
 2. Detect IDs:
@@ -89,7 +91,7 @@ detect.
 Example:
 ```
 - model.efficientdet:
-    detect_ids: ["bird", "cat", "dog", "horse", "sheep"]
+    detect_ids: ["bird", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe"]
 ```
 Refer to full list of class names and IDs provided [here](https://peekingduck.readthedocs.io/en/latest/resources/01a_object_detection.html?highlight=coco#object-detection-ids).
 
@@ -97,7 +99,7 @@ Also, based on <u>selected model, class names, and IDs</u> above, update your `c
 
 Example for EfficientDet model:
 ```
-custom_class_names: {"bird": 15, "cat": 16, "dog": 17, "horse"" 18, "sheep": 19}
+custom_class_names: {"bird": 15, "horse": 18, "sheep": 19, "cow": 20, "elephant": 21, "bear": 22, "zebra":23, "giraffe": 24}
 ```
 
 3. Zone division:
@@ -116,3 +118,13 @@ Example:
 $ cd animal_zone_count
 $ peekingduck run --config_path="custom_config.yml"
 ```
+
+# Author
+Joy Lin [Email](jlwq07@hotmail.com) | [GitHub Repository Link](https://github.com/JoyLinWQ/vehicle_zone_count/tree/submission)
+
+Submitted: April 2022
+
+# Acknowledgements
+PeekingDuck (v1.2.0) developed by AI Singapore Computer Vision Hub
+
+[GitHub](https://github.com/aimakerspace/PeekingDuck) | [Documentation](https://peekingduck.readthedocs.io/en/latest/)

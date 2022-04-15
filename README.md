@@ -18,7 +18,7 @@ $ cd pd_custom_zone_count
 
 2. Clone repository as a sub-project directory: 
 ```
-$ git clone https://github.com/JoyLinWQ/vehicle_zone_count
+$ git clone https://github.com/JoyLinWQ/vehicle_zone_count.git
 $ cd vehicle_zone_count
 ```
 
@@ -122,7 +122,7 @@ $ peekingduck run --config_path="custom_config.yml"
 ```
 
 # Author
-Joy Lin [Email](jlwq07@hotmail.com) | [GitHub Repository Link](https://github.com/JoyLinWQ/vehicle_zone_count/tree/submission)
+Joy Lin [Email](jlwq07@hotmail.com) | [GitHub Repository Link](https://github.com/JoyLinWQ/vehicle_zone_count)
 
 Submitted: April 2022
 

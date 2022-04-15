@@ -112,7 +112,7 @@ class Node(AbstractNode):
                 "To display information in the legend box, at least one data type must be "
                 "selected in the 'show' config."
             )
-        # self.ids = self.config["detect_ids"]
+        self.ids = [*self.config["custom_class_names"]] #
 
     def run(self, inputs: Dict[str, Any]) -> Dict[str, Any]:
         """Draws legend box with information from nodes.
@@ -124,12 +124,10 @@ class Node(AbstractNode):
             outputs (dict): Dictionary with keys "none".
         """
         _check_data_type(inputs, self.show)
-        Legend().draw(inputs, self.show, self.position)
-        # Legend().draw(inputs, self.show, self.position, self.ids)
+        # Legend().draw(inputs, self.show, self.position)
+        Legend().draw(inputs, self.show, self.position, self.ids)
         # cv2 weighted does not update the referenced image. Need to return and replace.
-        outputs = {
-            "img": inputs["img"]
-        }
+        outputs = {"img": inputs["img"]}
         return outputs
 
 

@@ -1,6 +1,8 @@
-# data folders
-/data/**
-/PeekingDuck/**
+# data folders except sample files/folders
+data/**
+!data/sample.mp4
+PeekingDuck/data/output/*.mp4
+!PeekingDuck/data/output/sample/*.mp4
 
 # weights folders
 /src/peekingduck_weights/**

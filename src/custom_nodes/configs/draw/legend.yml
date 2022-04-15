@@ -9,12 +9,14 @@
 # output: ["obj_attrs", "custom_key"]
 
 # Optional configs depending on node
-# detect_ids: ["car", "motorcycle", "truck", "bus"]
 # threshold: 0.5 # example
 
 input: ["all"]
-# output: ["img", "bboxes", "bbox_labels", "obj_attrs", "btm_midpoint", "zones", "filename", "saved_video_fps", "pipeline_end"]
 output: ["img"]
 
 position: "bottom"
 show: []
+# Amend this class names dictionary accordingly to your desired
+# List of built-in data types for PeekingDuck can
+# be found at https://peekingduck.readthedocs.io/en/stable/glossary.html.
+custom_class_names: {"car": 2, "motorcycle": 3, "truck": 5, "bus": 7}

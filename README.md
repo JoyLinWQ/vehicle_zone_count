@@ -76,9 +76,11 @@ A 13-second trimmed video is available in
 https://www.youtube.com/watch?v=G2usoiFYlho).
 
 ### B. Configure script
-Before running, you may wish to copy and rename the folder contents in `vehicle_zone_count` to your specific use case, eg. `animal_zone_count`. Next, perform 3 simple configurations for your custom data sources in `pd_custom_zone_count/animal_zone_count/custom_config.yml`.
+Before running, you may wish to copy and rename the folder contents in `vehicle_zone_count` to your specific use case, eg. `animal_zone_count`.
 
-1. Input source:
+Next, perform 3 simple configurations for your custom data sources in `pd_custom_zone_count/animal_zone_count/custom_config.yml`.
+
+1. **Input source**:
 Update the path to your input video source, relative to the sub-project folder `amimal_zone_count`.
 Example:
 ```
@@ -86,7 +88,7 @@ Example:
     source: data/sample_animal.mp4
 ```
 
-2. Detect IDs:
+2. **Detect IDs**:
 Update `detect_ids` to include the classes you wish to 
 detect.
 Example:
@@ -100,10 +102,10 @@ Also, based on <u>selected model, class names, and IDs</u> above, update your `c
 
 Example for EfficientDet model:
 ```
-custom_class_names: {"bird": 15, "horse": 18, "sheep": 19, "cow": 20, "elephant": 21, "bear": 22, "zebra":23, "giraffe": 24}
+custom_class_names: {"bird": 15, "horse": 18, "sheep": 19, "cow": 20, "elephant": 21, "bear": 22, "zebra": 23, "giraffe": 24}
 ```
 
-3. Zone division:
+3. **Zone division**:
 Update the scaled coordinates of bounding boxes to cover the static zone areas you are interested in. Details can be found [here](https://peekingduck.readthedocs.io/en/latest/use_cases/zone_counting.html).
 Example:
 ```

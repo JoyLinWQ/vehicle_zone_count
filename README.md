@@ -1,7 +1,7 @@
 # Zone Counting by Class Names
-This is an attempt to enhance current PeekingDuck's (v1.2.0) zone counting capabilities by introducing a breakdown of the counts of detected objects by their class names. 
+This is an attempt to enhance current [PeekingDuck's (v1.2.0)](https://github.com/aimakerspace/PeekingDuck) [zone counting](https://peekingduck.readthedocs.io/en/latest/use_cases/zone_counting.html) and [object detection (over time)](https://peekingduck.readthedocs.io/en/latest/use_cases/object_counting_over_time.html) capabilities by introducing a breakdown of the counts per frame of detected objects by their class names. 
 
-Since PeekingDuck's Object Detection tools leverage on open-source models trained on MS COCO dataset containing over 80 classes including common objects like vehicles, animals, food, etc, this enhancement has a huge potential in a wide range of use cases - from traffic flow monitoring to tracking wildlife migration patterns! By segregating the number of detected objects in different zones by their class names, this detailed count allows for more targeted downstream data analysis.
+Since PeekingDuck's Object Detection tools leverage on open-source models trained on MS COCO dataset containing over 80 classes including common objects like vehicles, animals, food, etc, this enhancement has a huge potential in a wide range of use cases - from traffic flow monitoring to tracking wildlife migration patterns! By segregating the number of detected objects in different zones by their class names, this detailed near real-time (30 FPS) count allows for more targeted downstream data analysis.
 
 Other interesting use cases like blood flow monitoring or smart refrigerators can also be explored if such models are being sufficiently trained on custom datasets, to be included into the current pool of models and class names.
 

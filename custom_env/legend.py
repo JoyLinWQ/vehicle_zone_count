@@ -57,14 +57,15 @@ class Legend:
             inputs (dict): dictionary of all available inputs for drawing the legend
             items (list): list of items to be drawn in legend
             position (str): used to control whether legend box is drawn on top or bottom
-            names (list): list of class names passed from model to dabble to legend node
+            names (list): list of class names for detected objects used in zone counting
         """
         self.frame = inputs["img"]
 
         self.legend_height = self._get_legend_height(inputs, items)
         self._set_legend_variables(position)
 
-        self._draw_legend_box(self.frame)
+        # self._draw_legend_box(self.frame)
+        self._draw_custom_legend_box(self.frame, names)
         y_pos = self.legend_starting_y + 20
         print("items", items)
         print("check inputs", inputs) #
@@ -175,7 +176,7 @@ class Legend:
             y_pos (int): y position to draw the count info text
             counts (list): list of zone counts
             bbox_labels (list): list of bbox_labels of predicted objects in current frame
-            names (list): list of class names passed from model to dabble to legend node
+            names (list): list of class names for detected objects used in zone counting
         """
         print("--LEGEND--")
         print("Zone counts: ", counts) #
@@ -220,6 +221,25 @@ class Legend:
                 THICK,
                 LINE_AA,
             )
+
+    def _draw_custom_legend_box(self, frame: np.ndarray, names: List[str]) -> None:
+        """draw pts of selected object onto frame
+
+        Args:
+            frame (np.array): image of current frame
+            names (list): list of class names for detected objects used in zone counting
+        """
+        assert self.legend_height is not None
+        overlay = frame.copy()
+        cv2.rectangle(
+            overlay,
+            (self.legend_left_x, self.legend_starting_y),
+            (self.legend_left_x + 118*len(names), self.legend_starting_y + self.legend_height),
+            BLACK,
+            FILLED,
+        )
+        # apply the overlay
+        cv2.addWeighted(overlay, 0.3, frame, 0.7, 0, frame)
     # CUSTOM END
 
     # CUSTOM START
@@ -285,25 +305,25 @@ class Legend:
                 # id_x += 20
     # CUSTOM END
 
-    def _draw_legend_box(self, frame: np.ndarray) -> None:
-        """draw pts of selected object onto frame
-
-        Args:
-            frame (np.array): image of current frame
-            zone_count (List[float]): object count, likely people, of each zone used
-            in the zone analytics
-        """
-        assert self.legend_height is not None
-        overlay = frame.copy()
-        cv2.rectangle(
-            overlay,
-            (self.legend_left_x, self.legend_starting_y),
-            (self.legend_left_x + 150, self.legend_starting_y + self.legend_height),
-            BLACK,
-            FILLED,
-        )
+    # def _draw_legend_box(self, frame: np.ndarray) -> None:
+        # """draw pts of selected object onto frame
+# 
+        # Args:
+            # frame (np.array): image of current frame
+            # zone_count (List[float]): object count, likely people, of each zone used
+            # in the zone analytics
+        # """
+        # assert self.legend_height is not None
+        # overlay = frame.copy()
+        # cv2.rectangle(
+            # overlay,
+            # (self.legend_left_x, self.legend_starting_y),
+            # (self.legend_left_x + 150, self.legend_starting_y + self.legend_height),
+            # BLACK,
+            # FILLED,
+        # )
         # apply the overlay
-        cv2.addWeighted(overlay, 0.3, frame, 0.7, 0, frame)
+        # cv2.addWeighted(overlay, 0.3, frame, 0.7, 0, frame)
 
     @staticmethod
     def _get_legend_height(inputs: Dict[str, Any], items: List[str]) -> int:
